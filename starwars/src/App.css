@@ -1,15 +1,37 @@
 .ULClass {
-  width: 20%;
+  width: 40%;
 
   list-style-type: none;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .LiClass {
+  text-align: center;
   color: yellow;
   background: black;
   margin: 10px 0;
   box-shadow: 10px 10px 7px black;
+}
+
+.MainContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.listdiv {
+  width: 100%;
+  
+}
+
+.datadiv {
+  width: 100%;
+  color: orangered;
+  text-shadow: 1px 2px black;
+  margin: 10px 0;
+  box-shadow: 10px 10px 7px black;
+  font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .App {

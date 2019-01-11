@@ -34,23 +34,28 @@ class App extends Component {
       });
   };
 
-  handleClick = (e) => {
+  handleClick = (name) => {
     this.setState(currentState => {
       return {
         selected: currentState.starwarsChars.filter(character => 
-          character.name === "Luke Skywalker")}})}
+          character.name === name)}})}
 
 
   render() {
     return (
       <div className="App">
-        <h1 className="Header">React Wars selected: {this.state.selected[0].name}</h1>
+        <h1 className="Header">React Wars</h1>
         <div className="MainContent">
+          <div className='listdiv'>
           <CharList
             swList={this.state.starwarsChars}
             onClick={this.handleClick}
           />
-          <DataView />
+          </div>
+          <div className='datadiv'>
+          <DataView 
+            selected={this.state.selected[0]}/>
+            </div>
         </div>
       </div>
     );
