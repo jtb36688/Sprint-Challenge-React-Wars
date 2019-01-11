@@ -2,7 +2,7 @@ import React from 'react';
 
 function Char(props) {
     return (
-        <li className='LiClass'>{props.name}</li>
+        <li name='Owen Lars' className='LiClass' onClick={props.onClick}>{props.name}</li>
     )
 }
 

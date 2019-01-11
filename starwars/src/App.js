@@ -9,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      selected: [{name: 'nobody'}]
     };
   }
 
@@ -33,12 +34,22 @@ class App extends Component {
       });
   };
 
+  handleClick = (e) => {
+    this.setState(currentState => {
+      return {
+        selected: currentState.starwarsChars.filter(character => 
+          character.name === "Luke Skywalker")}})}
+
+
   render() {
     return (
       <div className="App">
-        <h1 className="Header">React Wars</h1>
+        <h1 className="Header">React Wars selected: {this.state.selected[0].name}</h1>
         <div className="MainContent">
-          <CharList swList={this.state.starwarsChars} />
+          <CharList
+            swList={this.state.starwarsChars}
+            onClick={this.handleClick}
+          />
           <DataView />
         </div>
       </div>

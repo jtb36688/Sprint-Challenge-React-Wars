@@ -7,6 +7,7 @@ function CharList(props) {
         <ul className='ULClass'>
         {props.swList.map((char, index) => (
             <Char
+            onClick={props.onClick}
             char={char}
             key={index}
             name={char.name}
