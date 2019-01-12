@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import CharList from "./components/CharList.js";
+import DataView from "./components/DataView.js";
+
+document.getElementById("viewport");
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      selected: [{name: 'nobody'}]
     };
   }
 
   componentDidMount() {
-    this.getCharacters('https://swapi.co/api/people');
+    this.getCharacters("https://swapi.co/api/people");
   }
 
   getCharacters = URL => {
@@ -29,10 +34,29 @@ class App extends Component {
       });
   };
 
+  handleClick = (name) => {
+    this.setState(currentState => {
+      return {
+        selected: currentState.starwarsChars.filter(character => 
+          character.name === name)}})}
+
+
   render() {
     return (
       <div className="App">
-        <h1 className="Header">React Wars</h1>
+        <h1 className="Header">Reacttt Wars</h1>
+        <div className="MainContent">
+          <div className='listdiv'>
+          <CharList
+            swList={this.state.starwarsChars}
+            onClick={this.handleClick}
+          />
+          </div>
+          <div className='datadiv'>
+          <DataView 
+            selected={this.state.selected[0]}/>
+            </div>
+        </div>
       </div>
     );
   }
